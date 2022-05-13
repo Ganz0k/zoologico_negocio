@@ -7,11 +7,16 @@ package implementaciones;
 import controles.CtrlAnimales;
 import controles.CtrlCuidadores;
 import controles.CtrlEspecies;
+import controles.CtrlGuias;
 import controles.CtrlHabitats;
+import controles.CtrlItinerario;
+import controles.CtrlZonas;
 import entidades.Animal;
 import entidades.Cuidador;
 import entidades.Especie;
+import entidades.Guia;
 import entidades.Habitat;
+import entidades.Itinerario;
 import interfaces.INegocio;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -28,7 +33,11 @@ public class FNegocio implements INegocio {
     private final CtrlCuidadores ctrlCuidadores;
     private final CtrlEspecies ctrlEspecies;
     private final CtrlAnimales ctrlAnimales;
-
+    private final CtrlGuias ctrlGuias;
+    private final CtrlZonas ctrlZonas;
+    private final CtrlItinerario ctrlItinerarios;
+    
+    
     /**
      * Constructor que inicializa todos los controles
      */
@@ -37,6 +46,9 @@ public class FNegocio implements INegocio {
         this.ctrlCuidadores = new CtrlCuidadores();
         this.ctrlEspecies = new CtrlEspecies();
         this.ctrlAnimales = new CtrlAnimales();
+        this.ctrlGuias = new CtrlGuias();
+        this.ctrlZonas = new CtrlZonas();
+        this.ctrlItinerarios = new CtrlItinerario();
     }
 
     /**
@@ -177,5 +189,37 @@ public class FNegocio implements INegocio {
     @Override
     public void eliminarAnimal(ObjectId idEspecie, ObjectId idAnimal) {
         this.ctrlAnimales.eliminarAnimal(idEspecie, idAnimal);
+    }
+
+    /**
+     * Manda a llamar el método consultarGuias del CtrlGuias.
+     * 
+     * @return Lista con los guias almacenados en la base de datos. 
+     */
+    @Override
+    public List<Guia> consultarGuias() {
+        return this.ctrlGuias.consultarGuias();
+    }
+
+    /**
+     * Manda a llamar el método agregarItinerario del CtrlGuias.
+     * 
+     * @param idGuia Id del guia al que se le agregará el itinerario.
+     * @param itinerario Itinerario que se agregará al guia.
+     */
+    @Override
+    public void agregarItinerario(ObjectId idGuia, Itinerario itinerario) {
+        this.ctrlGuias.agregarItinerario(idGuia, itinerario);
+    }
+
+    /**
+     * Manda a llamar el método guardarGuia del CtrlGuias.
+     * 
+     * @param guia
+     * @return true en caso de agregar el guia, false en caso contrario.
+     */
+    @Override
+    public boolean guardarGuia(Guia guia) {
+        return this.ctrlGuias.guardarGuia(guia);
     }
 }

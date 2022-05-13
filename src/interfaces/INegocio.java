@@ -7,7 +7,9 @@ package interfaces;
 import entidades.Animal;
 import entidades.Cuidador;
 import entidades.Especie;
+import entidades.Guia;
 import entidades.Habitat;
+import entidades.Itinerario;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -40,4 +42,10 @@ public interface INegocio {
     public void guardarAnimal(ObjectId idEspecie, Animal animal);
     
     public void eliminarAnimal(ObjectId idEspecie, ObjectId idAnimal);
+    
+    public List<Guia> consultarGuias();
+    
+    public void agregarItinerario(ObjectId idGuia, Itinerario itinerario);
+    
+    public boolean guardarGuia(Guia guia);
 }
