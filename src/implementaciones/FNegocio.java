@@ -17,6 +17,7 @@ import entidades.Especie;
 import entidades.Guia;
 import entidades.Habitat;
 import entidades.Itinerario;
+import entidades.Zona;
 import interfaces.INegocio;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -215,11 +216,78 @@ public class FNegocio implements INegocio {
     /**
      * Manda a llamar el método guardarGuia del CtrlGuias.
      * 
-     * @param guia
+     * @param guia Guia a guardar
      * @return true en caso de agregar el guia, false en caso contrario.
      */
     @Override
     public boolean guardarGuia(Guia guia) {
         return this.ctrlGuias.guardarGuia(guia);
     }
+
+    /**
+     * Manda a llamar el método guardarCuidador del CtrlCuidador.
+     * 
+     * @param cuidador Guia a guardar
+     * @return true en caso de guardar el cuidador, false en caso contrario. 
+     */
+    @Override
+    public boolean guardarCuidador(Cuidador cuidador) {
+        return this.ctrlCuidadores.guardarCuidador(cuidador);
+    }
+
+    /**
+     * Manda a llamar el método guardarZona del CtrlZonas.
+     * 
+     * @param zona Zona a guardar.
+     * @return true en caso de guardar la zona, false en caso contrario.
+     */
+    @Override
+    public boolean guardarZona(Zona zona) {
+        return this.ctrlZonas.guardarZona(zona);
+    }
+
+    /**
+     * Manda a llamar el método agregarEspecie del CtrlZonas.
+     * 
+     * @param idZona id de la zona a actualizar.
+     * @param idEspecie id de la especie a agregar en la zona.
+     */
+    @Override
+    public void agregarEspecie(ObjectId idZona, ObjectId idEspecie) {
+        this.ctrlZonas.agregarEspecie(idZona, idEspecie);
+    }
+
+    /**
+     * Manda a llamar el método agregarHabitat del CtrlZonas.
+     * 
+     * @param idZona id de la zona a actualizar.
+     * @param idHabitat id del habitat a agregar en la zona.
+     */
+    @Override
+    public void agregarHabitat(ObjectId idZona, ObjectId idHabitat) {
+        this.ctrlZonas.agregarHabitat(idZona, idHabitat);
+    }
+
+    /**
+     * Manda a llamar el método guardarItinerario del CtrlItinerarios.
+     * 
+     * @param itinerario itinerario a guardar.
+     * @return true si se logro guardar, false en caso contrario.
+     */
+    @Override
+    public boolean guardarItinerario(Itinerario itinerario) {
+        return this.ctrlItinerarios.guardarItinerario(itinerario);
+    }
+
+    /**
+     * Manda a llamar el método verificarNombreItinerario del CtrlItinerarios.
+     * 
+     * @param nombre nombre del itinerario a verificar.
+     * @return itinerario en caso de encontrar coincidencias, null en caso contrario.
+     */
+    @Override
+    public Itinerario verificarNombreItinerario(String nombre) {
+        return this.ctrlItinerarios.verificarNombreItinerario(nombre);
+    }
+    
 }

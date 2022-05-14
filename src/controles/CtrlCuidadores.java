@@ -29,6 +29,17 @@ public class CtrlCuidadores {
     }
 
     /**
+     * Utiliza el método guardarCuidador de la interfaz IDatos para guardar 
+     * el cuidador dado por el parametro en la base de datos.
+     * 
+     * @param cuidador Cuidador a agregar
+     * @return true en caso de lograr guardar, false en caso contrario.
+     */
+    public boolean guardarCuidador(Cuidador cuidador){
+        return this.datos.guardarCuidador(cuidador);
+    }
+    
+    /**
      * Utiliza el método consultarCuidadores de la interfaz IDatos para obtener
      * una lista con todos los cuidadores que hay en la base de datos, regresa
      * null en caso de no encontrar nada
@@ -51,4 +62,6 @@ public class CtrlCuidadores {
     public void agregarEspecieCuidador(ObjectId idCuidador, Especie especie) {
         this.datos.agregarEspecieCuidador(idCuidador, especie);
     }
+    
+    
 }
