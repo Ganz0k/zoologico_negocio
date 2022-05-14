@@ -7,6 +7,7 @@ package controles;
 import entidades.Itinerario;
 import factory.FabricaDatos;
 import interfaces.IDatos;
+import java.util.List;
 
 /**
  * Clase de control que utiliza un objeto del tipo IDatos para acceder a los
@@ -45,6 +46,17 @@ public class CtrlItinerario {
      */
     public Itinerario verificarNombreItinerario(String nombre) {
         return this.datos.verificarNombreItinerario(nombre);
+    }
+    
+     /**
+     * Utiliza el método consultarGuias de la interfaz IDatos para
+     * obtener la lista de guias en su totalidad.
+     *
+     * @return lista con todos los guias registrados, null en caso de no
+     * encontrar nada.
+     */
+    public List<Itinerario> consultarItinerarios() {
+        return this.datos.consultarItinerarios();
     }
     
 }
