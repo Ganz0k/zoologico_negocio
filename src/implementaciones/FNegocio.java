@@ -4,6 +4,7 @@
  */
 package implementaciones;
 
+import controles.CtrlAdministradores;
 import controles.CtrlAnimales;
 import controles.CtrlCuidadores;
 import controles.CtrlEspecies;
@@ -11,6 +12,7 @@ import controles.CtrlGuias;
 import controles.CtrlHabitats;
 import controles.CtrlItinerario;
 import controles.CtrlZonas;
+import entidades.Administrador;
 import entidades.Animal;
 import entidades.Cuidador;
 import entidades.Especie;
@@ -37,8 +39,8 @@ public class FNegocio implements INegocio {
     private final CtrlGuias ctrlGuias;
     private final CtrlZonas ctrlZonas;
     private final CtrlItinerario ctrlItinerarios;
-    
-    
+    private final CtrlAdministradores ctrlAdministradores;
+
     /**
      * Constructor que inicializa todos los controles
      */
@@ -50,6 +52,7 @@ public class FNegocio implements INegocio {
         this.ctrlGuias = new CtrlGuias();
         this.ctrlZonas = new CtrlZonas();
         this.ctrlItinerarios = new CtrlItinerario();
+        this.ctrlAdministradores = new CtrlAdministradores();
     }
 
     /**
@@ -194,8 +197,8 @@ public class FNegocio implements INegocio {
 
     /**
      * Manda a llamar el método consultarGuias del CtrlGuias.
-     * 
-     * @return Lista con los guias almacenados en la base de datos. 
+     *
+     * @return Lista con los guias almacenados en la base de datos.
      */
     @Override
     public List<Guia> consultarGuias() {
@@ -204,7 +207,7 @@ public class FNegocio implements INegocio {
 
     /**
      * Manda a llamar el método agregarItinerario del CtrlGuias.
-     * 
+     *
      * @param idGuia Id del guia al que se le agregará el itinerario.
      * @param itinerario Itinerario que se agregará al guia.
      */
@@ -215,7 +218,7 @@ public class FNegocio implements INegocio {
 
     /**
      * Manda a llamar el método guardarGuia del CtrlGuias.
-     * 
+     *
      * @param guia Guia a guardar
      * @return true en caso de agregar el guia, false en caso contrario.
      */
@@ -226,9 +229,9 @@ public class FNegocio implements INegocio {
 
     /**
      * Manda a llamar el método guardarCuidador del CtrlCuidador.
-     * 
+     *
      * @param cuidador Guia a guardar
-     * @return true en caso de guardar el cuidador, false en caso contrario. 
+     * @return true en caso de guardar el cuidador, false en caso contrario.
      */
     @Override
     public boolean guardarCuidador(Cuidador cuidador) {
@@ -237,7 +240,7 @@ public class FNegocio implements INegocio {
 
     /**
      * Manda a llamar el método guardarZona del CtrlZonas.
-     * 
+     *
      * @param zona Zona a guardar.
      * @return true en caso de guardar la zona, false en caso contrario.
      */
@@ -248,7 +251,7 @@ public class FNegocio implements INegocio {
 
     /**
      * Manda a llamar el método agregarEspecie del CtrlZonas.
-     * 
+     *
      * @param idZona id de la zona a actualizar.
      * @param idEspecie id de la especie a agregar en la zona.
      */
@@ -259,7 +262,7 @@ public class FNegocio implements INegocio {
 
     /**
      * Manda a llamar el método agregarHabitat del CtrlZonas.
-     * 
+     *
      * @param idZona id de la zona a actualizar.
      * @param idHabitat id del habitat a agregar en la zona.
      */
@@ -270,7 +273,7 @@ public class FNegocio implements INegocio {
 
     /**
      * Manda a llamar el método guardarItinerario del CtrlItinerarios.
-     * 
+     *
      * @param itinerario itinerario a guardar.
      * @return true si se logro guardar, false en caso contrario.
      */
@@ -281,13 +284,26 @@ public class FNegocio implements INegocio {
 
     /**
      * Manda a llamar el método verificarNombreItinerario del CtrlItinerarios.
-     * 
+     *
      * @param nombre nombre del itinerario a verificar.
-     * @return itinerario en caso de encontrar coincidencias, null en caso contrario.
+     * @return itinerario en caso de encontrar coincidencias, null en caso
+     * contrario.
      */
     @Override
     public Itinerario verificarNombreItinerario(String nombre) {
         return this.ctrlItinerarios.verificarNombreItinerario(nombre);
     }
-    
+
+    /**
+     * Manda a llamar el método getAdministrador del CtrlAdministradores
+     *
+     * @param nombre del administrador
+     * @param contrasenia contraseña del administrador
+     * @return un administrador que coincida con el nombre y la contraseña de
+     * los parámetros, null si no encuentra nada
+     */
+    @Override
+    public Administrador getAdministrador(String nombre, String contrasenia) {
+        return this.ctrlAdministradores.getAdministrador(nombre, contrasenia);
+    }
 }

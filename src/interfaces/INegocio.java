@@ -4,6 +4,7 @@
  */
 package interfaces;
 
+import entidades.Administrador;
 import entidades.Animal;
 import entidades.Cuidador;
 import entidades.Especie;
@@ -61,4 +62,6 @@ public interface INegocio {
     public boolean guardarItinerario(Itinerario itinerario);
     
     public Itinerario verificarNombreItinerario(String nombre);
+    
+    public Administrador getAdministrador(String nombre, String contrasenia);
 }
