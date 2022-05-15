@@ -331,13 +331,13 @@ public class FNegocio implements INegocio {
     @Override
     public boolean guardarQueja(Queja queja) {
         return this.ctrlQuejas.guardarQueja(queja);
-    
+    }
     /**
      * Manda a llamar el método consultarZonas del CtrlZonas
      * @return Lista con las zonas registradas.
      */
     @Override
     public List<Zona> consultarZonas(){
-        return ctrlZonas.consultarZonas();
+        return this.ctrlZonas.consultarZonas();
     }
 }
