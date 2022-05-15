@@ -69,4 +69,5 @@ public interface INegocio {
     public Guia consultarGuia(Itinerario itinerario);
     
     public boolean guardarQueja(Queja queja);
+    public List<Zona> consultarZonas();
 }
