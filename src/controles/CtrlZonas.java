@@ -7,6 +7,7 @@ package controles;
 import entidades.Zona;
 import factory.FabricaDatos;
 import interfaces.IDatos;
+import java.util.List;
 import org.bson.types.ObjectId;
 
 /**
@@ -59,4 +60,13 @@ public class CtrlZonas {
         this.datos.agregarHabitat(idZona, idHabitat);
     }
     
+    /**
+     * Utiliza el metodo consultarZonas de la interfaz IDatos para recuperar
+     * las zonas registradas en la base de datos.
+     * 
+     * @return Lista de zonas registradas, null si no encuentra registros. 
+     */
+    public List<Zona> consultarZonas(){
+        return this.datos.consultarZonas();
+    }
 }

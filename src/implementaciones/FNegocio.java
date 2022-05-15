@@ -306,7 +306,7 @@ public class FNegocio implements INegocio {
     public Administrador getAdministrador(String nombre, String contrasenia) {
         return this.ctrlAdministradores.getAdministrador(nombre, contrasenia);
     }
-
+    
     /**
      *
      *
@@ -316,5 +316,14 @@ public class FNegocio implements INegocio {
     @Override
     public Guia consultarGuia(Itinerario itinerario) {
         return this.ctrlItinerarios.consultarGuia(itinerario);
+    }
+    
+    /**
+     * Manda a llamar el método consultarZonas del CtrlZonas
+     * @return Lista con las zonas registradas.
+     */
+    @Override
+    public List<Zona> consultarZonas(){
+        return ctrlZonas.consultarZonas();
     }
 }
