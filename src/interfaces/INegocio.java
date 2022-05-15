@@ -64,4 +64,6 @@ public interface INegocio {
     public Itinerario verificarNombreItinerario(String nombre);
     
     public Administrador getAdministrador(String nombre, String contrasenia);
+    
+    public Guia consultarGuia(Itinerario itinerario);
 }

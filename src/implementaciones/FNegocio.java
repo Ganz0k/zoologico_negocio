@@ -306,4 +306,15 @@ public class FNegocio implements INegocio {
     public Administrador getAdministrador(String nombre, String contrasenia) {
         return this.ctrlAdministradores.getAdministrador(nombre, contrasenia);
     }
+
+    /**
+     *
+     *
+     * @param itinerario
+     * @return
+     */
+    @Override
+    public Guia consultarGuia(Itinerario itinerario) {
+        return this.ctrlItinerarios.consultarGuia(itinerario);
+    }
 }
