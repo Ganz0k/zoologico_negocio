@@ -11,6 +11,7 @@ import entidades.Especie;
 import entidades.Guia;
 import entidades.Habitat;
 import entidades.Itinerario;
+import entidades.Queja;
 import entidades.Zona;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -66,4 +67,6 @@ public interface INegocio {
     public Administrador getAdministrador(String nombre, String contrasenia);
     
     public Guia consultarGuia(Itinerario itinerario);
+    
+    public boolean guardarQueja(Queja queja);
 }

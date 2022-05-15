@@ -11,6 +11,7 @@ import controles.CtrlEspecies;
 import controles.CtrlGuias;
 import controles.CtrlHabitats;
 import controles.CtrlItinerario;
+import controles.CtrlQuejas;
 import controles.CtrlZonas;
 import entidades.Administrador;
 import entidades.Animal;
@@ -19,6 +20,7 @@ import entidades.Especie;
 import entidades.Guia;
 import entidades.Habitat;
 import entidades.Itinerario;
+import entidades.Queja;
 import entidades.Zona;
 import interfaces.INegocio;
 import java.util.List;
@@ -40,6 +42,7 @@ public class FNegocio implements INegocio {
     private final CtrlZonas ctrlZonas;
     private final CtrlItinerario ctrlItinerarios;
     private final CtrlAdministradores ctrlAdministradores;
+    private final CtrlQuejas ctrlQuejas;
 
     /**
      * Constructor que inicializa todos los controles
@@ -53,6 +56,7 @@ public class FNegocio implements INegocio {
         this.ctrlZonas = new CtrlZonas();
         this.ctrlItinerarios = new CtrlItinerario();
         this.ctrlAdministradores = new CtrlAdministradores();
+        this.ctrlQuejas = new CtrlQuejas();
     }
 
     /**
@@ -308,13 +312,24 @@ public class FNegocio implements INegocio {
     }
 
     /**
+     * Manda a llamar el método consultarGuia de ctrlItinerarios.
      *
-     *
-     * @param itinerario
-     * @return
+     * @param itinerario El itinerario del que se buscará el guía
+     * @return El guía, si existe, falso de forma contraria
      */
     @Override
     public Guia consultarGuia(Itinerario itinerario) {
         return this.ctrlItinerarios.consultarGuia(itinerario);
+    }
+
+    /**
+     * Manda a llamar el método guardarQueja de CtrlQuejas.
+     *
+     * @param queja La queja que se va a guardar
+     * @return Verdadero si se pudo guardar, falso de forma contraria
+     */
+    @Override
+    public boolean guardarQueja(Queja queja) {
+        return this.ctrlQuejas.guardarQueja(queja);
     }
 }
