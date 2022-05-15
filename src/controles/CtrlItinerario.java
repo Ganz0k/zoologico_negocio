@@ -60,8 +60,5 @@ public class CtrlItinerario {
         return this.datos.consultarItinerarios();
     }
 
-    public Guia consultarGuia(Itinerario itinerario) {
-        return this.datos.consultarGuia(itinerario);
-    }
     
 }

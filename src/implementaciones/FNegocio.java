@@ -310,17 +310,7 @@ public class FNegocio implements INegocio {
     public Administrador getAdministrador(String nombre, String contrasenia) {
         return this.ctrlAdministradores.getAdministrador(nombre, contrasenia);
     }
-    
-    /**
-     * Manda a llamar el método consultarGuia de ctrlItinerarios.
-     *
-     * @param itinerario El itinerario del que se buscará el guía
-     * @return El guía, si existe, falso de forma contraria
-     */
-    @Override
-    public Guia consultarGuia(Itinerario itinerario) {
-        return this.ctrlItinerarios.consultarGuia(itinerario);
-    }
+
 
     /**
      * Manda a llamar el método guardarQueja de CtrlQuejas.
@@ -331,13 +321,36 @@ public class FNegocio implements INegocio {
     @Override
     public boolean guardarQueja(Queja queja) {
         return this.ctrlQuejas.guardarQueja(queja);
-    
+    }
+
     /**
      * Manda a llamar el método consultarZonas del CtrlZonas
+     *
      * @return Lista con las zonas registradas.
      */
     @Override
-    public List<Zona> consultarZonas(){
+    public List<Zona> consultarZonas() {
         return ctrlZonas.consultarZonas();
+    }
+
+    /**
+     * Método que manda a llamar al método que consulta itinerarios de FDatos
+     *
+     * @return
+     */
+    @Override
+    public List<Itinerario> consultarItinerarios() {
+        return ctrlItinerarios.consultarItinerarios();
+    }
+
+    /**
+     * Método que manda llamar al método que consulta un guía según su
+     * itinerario.
+     *
+     * @param itinerario Id de itinerario sobre el que se hará la búsqueda
+     * @return El guía en cuestión
+     */
+    public Guia consultarGuia(ObjectId itinerario) {
+        return ctrlGuias.consultarGuia(itinerario);
     }
 }
