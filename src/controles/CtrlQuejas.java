@@ -35,5 +35,4 @@ public class CtrlQuejas {
     public boolean guardarQueja(Queja queja) {
         return this.datos.guardarQueja(queja);
     }
-
 }

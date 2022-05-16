@@ -4,7 +4,6 @@
  */
 package controles;
 
-import entidades.Guia;
 import entidades.Itinerario;
 import factory.FabricaDatos;
 import interfaces.IDatos;
@@ -58,7 +57,5 @@ public class CtrlItinerario {
      */
     public List<Itinerario> consultarItinerarios() {
         return this.datos.consultarItinerarios();
-    }
-
-    
+    }    
 }

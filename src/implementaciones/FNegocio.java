@@ -350,6 +350,7 @@ public class FNegocio implements INegocio {
      * @param itinerario Id de itinerario sobre el que se hará la búsqueda
      * @return El guía en cuestión
      */
+    @Override
     public Guia consultarGuia(ObjectId itinerario) {
         return ctrlGuias.consultarGuia(itinerario);
     }

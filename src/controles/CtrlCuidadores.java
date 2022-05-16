@@ -62,6 +62,4 @@ public class CtrlCuidadores {
     public void agregarEspecieCuidador(ObjectId idCuidador, Especie especie) {
         this.datos.agregarEspecieCuidador(idCuidador, especie);
     }
-    
-    
 }
